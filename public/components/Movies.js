@@ -3,6 +3,7 @@ import variables from "../utilities/variables.js";
 // const year = new Date().getFullYear();
 export let Movies = "";
 
+let index = 0;
 class Movie {
   constructor(category, url) {
     this.category = category;
@@ -62,10 +63,15 @@ class Movie {
   }
 }
 
-export default function createMovies() {
-  const popular = new Movie(
-    "Popular Now",
-    `${variables.BASE_URL}movie/popular?api_key=${variables.TMDB_API_KEY}&language=en-US&page=1`
+export default async function createMovies() {
+  const upcoming = new Movie(
+    "Upcoming in Theatres",
+    `${variables.BASE_URL}movie/upcoming?api_key=${variables.TMDB_API_KEY}&language=en-US&page=2`
+  );
+
+  const actionThriller = new Movie(
+    `Action Thriller`,
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=28%2C53`
   );
 
   const topRated = new Movie(
@@ -73,19 +79,24 @@ export default function createMovies() {
     `${variables.BASE_URL}movie/top_rated?api_key=${variables.TMDB_API_KEY}&language=en-US&page=1`
   );
 
-  const upcoming = new Movie(
-    "Upcoming in Theatres",
-    `${variables.BASE_URL}movie/upcoming?api_key=${variables.TMDB_API_KEY}&language=en-US&page=1`
-  );
-
   const actionAdventure = new Movie(
     "Action & Adventure",
     `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=28%2C12`
   );
 
+  const popular = new Movie(
+    "Popular Now",
+    `${variables.BASE_URL}movie/popular?api_key=${variables.TMDB_API_KEY}&language=en-US&page=1`
+  );
+
   const romance = new Movie(
     "Romantic Movies",
     `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=10749`
+  );
+
+  const sciFi = new Movie(
+    `Sci-Fi Movies`,
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=878`
   );
 
   const western = new Movie(
@@ -96,6 +107,46 @@ export default function createMovies() {
   const horror = new Movie(
     "Horror",
     `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=27`
+  );
+
+  const romanticComedy = new Movie(
+    "Romantic Comedy",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=10749%2C35`
+  );
+
+  const documentaries = new Movie(
+    "Documentaries",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=99`
+  );
+
+  const family = new Movie(
+    "Family Movies",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=10751`
+  );
+
+  const animation = new Movie(
+    "Animation",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=16`
+  );
+
+  const comedy = new Movie(
+    "Comedy Movie",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=35`
+  );
+
+  const drama = new Movie(
+    "Drama",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=18`
+  );
+
+  const fantasy = new Movie(
+    "Fantasy Movies",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=14`
+  );
+
+  const musicRomance = new Movie(
+    "Music & Romance",
+    `${variables.BASE_URL}discover/movie?api_key=${variables.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&page=1&with_genres=10402%2C10749`
   );
 }
 // function showDetails(id) {

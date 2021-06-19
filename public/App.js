@@ -6,15 +6,23 @@ import createMovies, { Movies } from "./components/Movies.js";
 
 const body = document.querySelector("#App");
 
-createMovies();
+// createMovies();
 
-setTimeout(() => {
-  getHeaderMovies().then(() => {
+// setTimeout(() => {
+//   getHeaderMovies().then(() => {
+//     renderGenres();
+//     renderElements();
+//     renderSlide();
+//   });
+// }, 1000);
+
+Promise.all([createMovies(), getHeaderMovies()]).then(() => {
+  setTimeout(() => {
     renderGenres();
     renderElements();
     renderSlide();
-  });
-}, 500);
+  }, 500);
+});
 
 function renderElements() {
   body.innerHTML = `
@@ -27,6 +35,4 @@ function renderElements() {
         ${Movies}
     </main>
 `;
-  //   console.log(HeaderMovies);
-  //   console.log(Movies);
 }

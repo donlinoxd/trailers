@@ -46,7 +46,7 @@ function getSearchMovies(query) {
       console.log("error", err);
 
       main.innerHTML = `
-            <div class="w-full h-screen container mx-auto flex justify-center items-center flex-col">
+            <div class="w-full h-screen container mx-auto flex justify-center items-center flex-col px-8">
                 <h2 class="my-6 text-xl">Sorry! Something horrible has occurred. Refresh your internet connection if possible. Thank you very much.</h2>
             </div>
             `;
