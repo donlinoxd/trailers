@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <title>Trailers.co | Watch your Favourite Movie Trailer</title>
+    <link rel="stylesheet" href="../public/style.css" />
+    <link rel="icon" href="../public/img/icon.png">
+</head>
+
+<body class="font-poppins bg-custom-black text-custom-white w-full">
+    <header class="w-full relative text-xs font-light lg:text-sm">
+        <nav class="px-4 py-3  flex justify-between items-center fixed w-screen z-10 bg-custom-black bg-opacity-50 bg-opacity-50 backdrop-filter backdrop-blur-sm
+                md:p-6 lg:px-12">
+            <a href="/index.html"><img src="../public/img/logo.svg" alt="Trailers.co Logo"
+                    class="w-28 sm:w-36 lg:w-44"></a>
+
+            <form class="relative flex items-center" action="/movie/index.html" method="GET" id="search-form">
+                <input class="w-28 h-8 rounded-full bg-custom-white bg-opacity-30 pl-4 pr-8 outline-none font-extralight tracking-wider
+                    sm:w-56 lg:w-64" type="text" id="search" name="search">
+                <button class="absolute right-2 cursor-pointer flex item-center justify-center focus:outline-none"
+                    id="search-btn"><i class="bx bx-search-alt text-custom-blue text-xl"></i></button>
+            </form>
+        </nav>
+    </header>
+
+    <!-- ----------MAIN SECTION------------ -->
+    <main class="w-full relative pt-16 sm:pt-20 lg:pt-24">
+        <div class="w-full container mx-auto pt-4 px-4 lg:px-8
+                    grid grid-cols-3 gap-x-1 gap-y-6 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-7">
+        </div>
+    </main>
+    <script type="module" src="./genres.js"></script>
+
+</body>
+
+</html>
