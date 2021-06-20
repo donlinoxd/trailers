@@ -40,7 +40,11 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ["focus", "hover", "active"],
+      transform: ["focus", "hover", "active"],
+      scale: ["active", "group-hover"],
+    },
   },
   plugins: [require("tailwind-scrollbar-hide")],
 };

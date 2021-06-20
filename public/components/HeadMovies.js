@@ -110,9 +110,9 @@ function createHeaderMovies(results) {
           <div class="w-full flex justify-center pt-8
                       sm:absolute sm:bottom-0 sm:left-0 sm:justify-start sm:px-8
                       lg:px-12 lg:bottom-16 xl:bottom-32">
-              <button class="flex justify-center items-center bg-custom-red px-4 py-2 rounded mr-8 text-base focus:outline-none
-                              sm:my-2 watch-btn movie-card">
-                  <i class="bx bx-play text-custom-white mr-1 pointer-events-none"></i> Watch Trailer
+              <button class="flex justify-center items-center bg-custom-red px-4 py-2 rounded mr-8 text-base 
+                        focus:outline-none sm:my-2 watch-btn movie-card hover:animate-bounce">
+                  <i class="bx bx-play text-white mr-1 pointer-events-none"></i> Watch Trailer
               </button>
 
               <div class="sm:hidden flex flex-col items-center info-btn movie-card">

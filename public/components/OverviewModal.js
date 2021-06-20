@@ -66,26 +66,29 @@ function createOverviewModal(datas) {
     vote_average,
   } = datas[1];
 
+  const currency = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  revenue = currency.format(revenue);
+
   let companies = "";
   let countries = "";
   let genreList = "";
 
   production_companies.forEach((company, index) => {
-    if (index > 3 && production_companies.length > 3) {
+    if (index === production_companies.length - 1)
       companies += `${company.name}.`;
-      return;
-    }
-    companies += `${company.name}, `;
+    else if (index < 2) companies += `${company.name}, `;
+    else return;
   });
 
   production_countries.forEach((country, index) => {
-    if (index > 3 && production_countries.length > 3) {
-      countries += `and more`;
-    } else if (index === production_countries.length - 1) {
+    if (index === production_countries.length - 1)
       countries += `${country.name}.`;
-    } else {
-      countries += `${country.name}, `;
-    }
+    else if (index < 2) countries += `${country.name}, `;
+    else return;
   });
 
   genres.forEach((genre, index) => {
@@ -103,7 +106,7 @@ function createOverviewModal(datas) {
     "modal-wrapper w-full h-screen fixed top-0 left-0 overflow-y-scroll scrollbar-hide z-10 bg-custom-black bg-opacity-30  backdrop-filter backdrop-blur-sm";
   container.innerHTML = `
         <div class="overview-modal max-w-full bg-gradient-to-b from-black via-black to-custom-black 
-                    border border-custom-blue border-opacity-40 py-4 sm:py-10 rounded-md
+                    border border-custom-blue border-opacity-40 py-6 sm:py-10 rounded-md
                     absolute left-1/2 transform -translate-x-1/2 -translate-y-full transition-all duration-400"
               style="width: 40rem">   
             <div class="relative max-w-full" style="width: 40rem;">
@@ -126,14 +129,18 @@ function createOverviewModal(datas) {
                             <h2>${title}</h2>
                         </div>
                         <div class="flex">
-                            <strong class="font-normal">${release_date}</strong>
-                            <strong class="font-normal">${vote_average}</strong>
+                            <strong class="font-normal mr-4">${release_date}</strong>
+                            <strong class="font-normal">
+                                <i class='bx bxs-star mr-1 text-yellow-400' ></i>${vote_average}
+                            </strong>
                         </div>
                         <div>
                             <span><strong class="font-light opacity-80">Genres: </strong>${genreList}</span>
                         </div>
                         <div>
-                            <span><strong class="font-light opacity-80">Tagline: </strong>${tagline}</span>
+                            <span><strong class="font-light opacity-80">Tagline: </strong>${
+                              tagline ? tagline : "NA"
+                            }</span>
                         </div>
                         <div>
                             <span><strong class="font-light opacity-80">Companies: </strong>${companies}</span>
@@ -142,7 +149,9 @@ function createOverviewModal(datas) {
                             <span><strong class="font-light opacity-80">Countries: </strong>${countries}</span>
                         </div>
                         <div>
-                            <span><strong class="font-light opacity-80">Revenue: </strong>${revenue}</span>
+                            <span><strong class="font-light opacity-80">Revenue: </strong>${
+                              revenue == "$0.00" ? "NA" : revenue
+                            }</span>
                         </div>
                     </div>
                 </div>
@@ -151,7 +160,7 @@ function createOverviewModal(datas) {
                 </div>
             </div>
             <div class="absolute top-0.5 left-2 sm:top-2 sm:left-3">
-                <i class='bx bx-arrow-back text-xl sm:text-2xl cursor-pointer close-overview-modal'></i>
+                <i class='bx bx-arrow-back text-2xl sm:text-3xl cursor-pointer close-overview-modal'></i>
             </div>
         </div>
         `;

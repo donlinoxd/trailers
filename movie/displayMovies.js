@@ -24,13 +24,18 @@ export default function displayMovies(result) {
     if (!poster_path) return;
 
     content += `
-                <div class="inline-block col-span-1 cursor-pointer">
+                <div class="inline-block col-span-1 overflow-hidden relative">
                     <img 
-                    class="rounded-md movie-card"
+                    class="rounded-md movie-card cursor-pointer
+                        transition-all duration-500 hover:transform hover:scale-110"
                     src="${IMG_BASE_URL + poster_path}" 
                     alt="${title}" 
                     data-id="${id}">
+                    <div class="absolute top-0 left-0 border border-custom-blue w-full h-full hidden items-center justify-center pointer-events-none">
+                        <i class='bx bx-play text-6xl animate-pulse text-custom-blue'></i>
+                    </div>
                 </div>
+                
             `;
   });
 

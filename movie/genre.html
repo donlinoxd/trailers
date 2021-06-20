@@ -12,7 +12,7 @@
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <title>Trailers.co | Watch your Favourite Movie Trailer</title>
     <link rel="stylesheet" href="../public/style.css" />
-    <link rel="icon" href="../public/img/icon.png">
+    <link rel="icon" href="../public/img/icon.svg">
 </head>
 
 <body class="font-poppins bg-custom-black text-custom-white w-full" id="App">
@@ -25,7 +25,8 @@
             <form class="relative flex items-center" action="/movie/index.html" method="GET" id="search-form">
                 <input class="w-28 h-8 rounded-full bg-custom-white bg-opacity-30 pl-4 pr-8 outline-none font-extralight tracking-wider
                     sm:w-56 lg:w-64" type="text" id="search" name="search">
-                <button class="absolute right-2 cursor-pointer flex item-center justify-center focus:outline-none"
+                <button type="submit"
+                    class="absolute right-2 cursor-pointer flex item-center justify-center focus:outline-none active:transform active:scale-90"
                     id="search-btn"><i class="bx bx-search-alt text-custom-blue text-xl"></i></button>
             </form>
         </nav>

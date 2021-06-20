@@ -32,12 +32,16 @@ class Movie {
       if (!poster_path) return;
 
       slider += `
-            <div class="object-cover font-light m-0.5 text-center sm:m-1 inline-block">
+            <div class="object-cover relative font-light m-0.5 text-center sm:m-1 inline-block overflow-hidden">
                 <img 
-                class="movie-card w-28 sm:w-48 rounded-md cursor-pointer"
+                class="movie-card w-28 sm:w-48 rounded-md cursor-pointer
+                    transition-all duration-500 hover:transform hover:scale-110"
                 data-id="${id}"
                 src="${variables.IMG_BASE_URL_300 + poster_path}"
                 alt="${title}">
+                <div class="absolute top-0 left-0 border border-custom-blue w-full h-full hidden items-center justify-center pointer-events-none">
+                    <i class='bx bx-play text-6xl animate-pulse text-custom-blue'></i>
+                </div>
             </div>
             `;
     });
@@ -46,9 +50,11 @@ class Movie {
         <section class="relative my-2 md:my-4 lg:my-6 xl:my-8">
             <h2 class="mx-4 text-lg sm:text-xl cursor-pointer inline-block">${this.category} ></h2>
 
-            <div class="absolute top-0 w-full h-5/6 hidden md:block">
-                <i class="bx bxs-chevron-left prev z-10 absolute left-2 top-2/4 transform translate-y-1/2 text-3xl cursor-pointer opacity-50 hover:opacity-100 hidden lg:block"></i>
-                <i class="bx bxs-chevron-right next z-10 absolute right-2 top-2/4 transform translate-y-1/2 text-3xl cursor-pointer opacity-50 hover:opacity-100 hidden lg:block"></i>
+            <div class="absolute top-0 w-full h-1/2 hidden lg:block">
+                <i class="bx bxs-chevron-left prev z-10 absolute left-0 bottom-0 transform translate-y-1/2 text-5xl py-3 rounded-md
+                        cursor-pointer opacity-50 hover:opacity-100 hover:bg-custom-black hover:bg-opacity-50 hidden lg:block"></i>
+                <i class="bx bxs-chevron-right next z-10 absolute right-0 bottom-0 transform translate-y-1/2 text-5xl py-3 rounded-md
+                        cursor-pointer opacity-50 hover:opacity-100 hover:bg-custom-black hover:bg-opacity-50 hidden lg:block"></i>
             </div>
 
             <div class="category-wrapper relative w-full h-48 overflow-x-scroll scrollbar-hide sm:h-80"> 

@@ -5,5 +5,9 @@
 @tailwind utilities;
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+img.movie-card:hover + div {
+  display: flex;
 }

@@ -6,7 +6,10 @@ const NavBar = `
             <form class="relative flex items-center" action="/movie/index.html" method="GET">
                 <input class="w-28 h-8 rounded-full bg-custom-white bg-opacity-30 pl-4 pr-8 outline-none font-extralight tracking-wider
                         sm:w-56 lg:w-64" type="text" name="search">
-                <button class="absolute right-2 cursor-pointer flex item-center justify-center focus:outline-none"><i class="bx bx-search-alt text-custom-blue text-xl"></i></button>
+                <button type="submit" class="absolute right-2 cursor-pointer flex item-center justify-center 
+                        focus:outline-none active:transform active:scale-90">
+                        <i class="bx bx-search-alt text-custom-blue text-xl"></i>
+                </button>
             </form>
         </nav>
         `;

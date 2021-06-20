@@ -7,10 +7,11 @@ export default function displayGenres() {
 
   genreList.genres.forEach((genre) => {
     slider += `
-              <form class="relative object-cover font-light mx-0.5 sm:mx-1">
+              <form class="relative object-cover font-light mx-0.5 sm:mx-1 overflow-y-hidden scrollbar-hide">
                   <input type="hidden" value="${genre.id}" name="query">
                   <button class="focus:outline-none" formaction="/movie/genre.html" formmethod="GET" type="submit">
-                      <img class="w-24 sm:w-40 rounded-md cursor-pointer" src="/public/img/genre${genre.id}.jpg" alt="${genre.name}" id="${genre.id}">
+                      <img class="w-24 sm:w-40 rounded-md cursor-pointer 
+                            transition-all duration-500 hover:transform hover:scale-125" src="/public/img/genre${genre.id}.jpg" alt="${genre.name}" id="${genre.id}">
                   </button>
   
                   <div class="bg-custom-black bg-opacity-50 w-full h-full absolute top-0 pointer-events-none"></div>
