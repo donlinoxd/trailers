@@ -1,8 +1,20 @@
 export default function renderSlide() {
   setTimeout(() => {
+    let headerMovies = document.querySelectorAll("picture");
+    let watchBtn = document.querySelector(".watch-btn");
+    let infoBtn = document.querySelector(".info-btn");
     let nextBtns = document.querySelectorAll(".next");
     let prevBtns = document.querySelectorAll(".prev");
     let index = 0;
+
+    watchBtn.setAttribute(
+      "data-id",
+      headerMovies[index].getAttribute("data-id")
+    );
+    infoBtn.setAttribute(
+      "data-id",
+      headerMovies[index].getAttribute("data-id")
+    );
 
     nextBtns.forEach((next) => {
       next.addEventListener("click", (e) => {
@@ -42,10 +54,28 @@ export default function renderSlide() {
       if (index === 3) {
         slider.style.left = "0px";
         index = 0;
+        watchBtn.setAttribute(
+          "data-id",
+          headerMovies[index].getAttribute("data-id")
+        );
+        infoBtn.setAttribute(
+          "data-id",
+          headerMovies[index].getAttribute("data-id")
+        );
+
         return;
       }
 
       index++;
+
+      watchBtn.setAttribute(
+        "data-id",
+        headerMovies[index].getAttribute("data-id")
+      );
+      infoBtn.setAttribute(
+        "data-id",
+        headerMovies[index].getAttribute("data-id")
+      );
     }
 
     function prevSlide(btn) {

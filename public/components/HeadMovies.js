@@ -31,6 +31,7 @@ function createHeaderMovies(results) {
         title,
         overview,
         vote_average,
+        id,
       } = result;
 
       genres.forEach((genre) => {
@@ -47,14 +48,14 @@ function createHeaderMovies(results) {
       slider.innerHTML += `
               <div class="w-screen relative inline-block">
                   <div class="w-full object-cover relative">
-                      <picture class="w-full">
+                      <picture class="w-full header-movie" data-id="${id}">
                           <source media="(min-width: 640px)"
                                   srcset=${
                                     variables.IMG_BASE_URL + backdrop_path
                                   }>
                           <img
                           class="w-full" src=${
-                            variables.IMG_BASE_URL + poster_path
+                            variables.IMG_BASE_URL_500 + poster_path
                           }
                           alt=${title}>
                       </picture>
@@ -96,17 +97,6 @@ function createHeaderMovies(results) {
   });
 
   HeaderMovies = `
-      <nav class="px-4 py-3 flex justify-between items-center fixed w-screen z-10 bg-custom-black bg-opacity-50 backdrop-filter backdrop-blur-sm
-                  md:p-5 lg:px-12">
-          <a href="/index.html"><img src="./public/img/logo.svg" alt="Trailers.co Logo" class="w-28 sm:w-36 lg:w-44"></a>
-
-          <form class="relative flex items-center" action="./movie/index.html" method="GET">
-              <input class="w-28 h-8 rounded-full bg-custom-white bg-opacity-30 pl-4 pr-8 outline-none font-extralight tracking-wider
-                      sm:w-56 lg:w-64" type="text" name="search">
-              <button class="absolute right-2 cursor-pointer flex item-center justify-center focus:outline-none"><i class="bx bx-search-alt text-custom-blue text-xl"></i></button>
-          </form>
-      </nav>
-
       <div class="absolute w-full h-full">
           <i class="prev bx bxs-chevron-left z-10 absolute left-2 lg:left-3 top-2/4 text-5xl opacity-30 cursor-pointer
                   hover:opacity-100"></i>
@@ -121,13 +111,13 @@ function createHeaderMovies(results) {
                       sm:absolute sm:bottom-0 sm:left-0 sm:justify-start sm:px-8
                       lg:px-12 lg:bottom-16 xl:bottom-32">
               <button class="flex justify-center items-center bg-custom-red px-4 py-2 rounded mr-8 text-base focus:outline-none
-                              sm:my-2">
-                  <i class="bx bx-play text-custom-white mr-1"></i> Watch Trailer
+                              sm:my-2 watch-btn movie-card">
+                  <i class="bx bx-play text-custom-white mr-1 pointer-events-none"></i> Watch Trailer
               </button>
 
-              <div class="sm:hidden flex flex-col items-center">
-                  <i class="bx bx-info-square text-2xl"></i>
-                  <span>Info</span>
+              <div class="sm:hidden flex flex-col items-center info-btn movie-card">
+                  <i class="bx bx-info-square text-2xl pointer-events-none"></i>
+                  <span class="pointer-events-none">Info</span>
               </div>
           </div>
       </div>

@@ -1,4 +1,5 @@
 import displayGenres, { Genres } from "../public/components/Genres.js";
+import renderOverview from "../public/components/OverviewModal.js";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/original";
 const container = document.querySelector("main .container");
@@ -25,15 +26,17 @@ export default function displayMovies(result) {
     content += `
                 <div class="inline-block col-span-1 cursor-pointer">
                     <img 
-                    class="rounded-md"
+                    class="rounded-md movie-card"
                     src="${IMG_BASE_URL + poster_path}" 
                     alt="${title}" 
-                    id="${id}">
+                    data-id="${id}">
                 </div>
             `;
   });
 
   container.innerHTML += content;
+
+  renderOverview();
 }
 
 export function noResult() {

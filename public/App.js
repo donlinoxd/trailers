@@ -3,24 +3,16 @@ import getHeaderMovies, { HeaderMovies } from "./components/HeadMovies.js";
 import renderSlide from "./scripts/slidefunc.js";
 import renderGenres, { Genres } from "./components/Genres.js";
 import createMovies, { Movies } from "./components/Movies.js";
+import renderOverview from "./components/OverviewModal.js";
 
 const body = document.querySelector("#App");
-
-// createMovies();
-
-// setTimeout(() => {
-//   getHeaderMovies().then(() => {
-//     renderGenres();
-//     renderElements();
-//     renderSlide();
-//   });
-// }, 1000);
 
 Promise.all([createMovies(), getHeaderMovies()]).then(() => {
   setTimeout(() => {
     renderGenres();
     renderElements();
     renderSlide();
+    renderOverview();
   }, 500);
 });
 

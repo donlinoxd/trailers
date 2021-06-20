@@ -34,9 +34,9 @@ class Movie {
       slider += `
             <div class="object-cover font-light m-0.5 text-center sm:m-1 inline-block">
                 <img 
-                class="w-28 sm:w-48 rounded-md cursor-pointer"
-                id="${id}" 
-                src="${variables.IMG_BASE_URL + poster_path}"
+                class="movie-card w-28 sm:w-48 rounded-md cursor-pointer"
+                data-id="${id}"
+                src="${variables.IMG_BASE_URL_300 + poster_path}"
                 alt="${title}">
             </div>
             `;
