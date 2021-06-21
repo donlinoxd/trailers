@@ -160,7 +160,7 @@ function createOverviewModal(datas) {
                 </div>
             </div>
             <div class="absolute top-0.5 left-2 sm:top-2 sm:left-3">
-                <i class='bx bx-arrow-back text-2xl sm:text-3xl cursor-pointer close-overview-modal'></i>
+                <i class='bx bx-arrow-back text-2xl sm:text-3xl cursor-pointer close-overview-modal px-2 py-1 active:transform active:scale-90'></i>
             </div>
         </div>
         `;
